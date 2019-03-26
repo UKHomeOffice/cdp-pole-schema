@@ -1,0 +1,52 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "classpath://JSONSchema/CDPGraphSchema.json",
+  "title": "Schema for CDP Create Requests",
+  "$comment": "The index_patterns blank in the definition below; will be auto-filled by the converter API; the prefix below will be used  to prepend any indices that need the custom analyzer",
+
+  "elasticSearchTemplates": [
+    {
+      "name": "cdp_word_delimiter",
+      "body": {
+        "index_patterns": [ "janusgraph*"],
+        "order": 0,
+        "settings": {
+          "analysis": {
+            "filter": {
+              "cdp_word_delimiter_filter": {
+                "type": "word_delimiter",
+                "catenate_words": true,
+                "preserve_original": true,
+                "generate_word_parts": false,
+                "generate_number_parts": false
+              }
+            },
+            "analyzer": {
+              "cdp_word_delimiter": {
+                "filter": [
+                  "lowercase",
+                  "cdp_word_delimiter_filter"
+                ],
+                "tokenizer": "whitespace"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+
+  "anyOf": [
+    {
+      "$ref": "./CDPPOLETypes.json"
+    },
+    {
+      "properties": {
+        "association": {
+          "$ref": "./CDPcoreAssociation.json"
+        }
+      }
+    }
+  ]
+}

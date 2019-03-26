@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "description": "ABC extension to event to hold extended journey attributes",
+  "version": "0.11",
+  "additionalProperties":false,
+  "properties": {
+    "manifestType": {
+      "type": "string"
+    },
+    "rawFlightId": {
+      "type": "string"
+    },
+    "carrier": {
+      "type": "string"
+    },
+    "inboundOutbound": {
+      "type": "string"
+    },
+    "departureDateTime": {
+      "type": "string"
+    },
+    "departureDateTimeUTC": {
+      "type": "string"
+    },
+    "arrivalDateTimeUTC": {
+      "type": "string"
+    },
+    "dateTimeSent": {
+      "type": "string"
+    },
+    "passengerCount": {
+      "type": "integer"
+    },
+    "crewCount": {
+      "type": "integer"
+    },
+    "subsequentPort": {
+      "type": "string"
+    },
+    "craftId": {
+      "type": "string"
+    },
+    "route": {
+      "type": "string"
+    },
+    "eventCode": {
+      "type": "string"
+    },
+    "exception": {
+      "type": "string"
+    },
+    "carrierType": {
+      "type": "string"
+    },
+    "hireOrCharter": {
+      "type": "string"
+    },
+    "hireOrCharterDetails": {
+      "type": "string"
+    },
+    "cargo": {
+      "type": "string"
+    },
+    "airlineCode": {
+      "type": "string"
+    },
+    "departureAirportExtended": {
+      "type": "object",
+      "$ref": "abcExtendedLocation.json"
+    },
+    "arrivalAirportExtended": {
+      "type": "object",
+      "$ref": "abcExtendedLocation.json"
+    },
+    "operatorName": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        }
+      }
+    },
+    "operatorAddress": {
+      "type": "object",
+      "properties": {
+        "addressLine": {
+          "type": "array","maxItems":5
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "flightItinerary": {
+      "type": "object",
+      "properties": {
+        "locationNameCode": {
+          "type": "string"
+        },
+        "legFlightCode": {
+          "type": "string"
+        },
+        "locationFunctionCode": {
+          "type": "string"
+        },
+        "departureDateTime": {
+          "type": "string"
+        },
+        "departureDateTimeUTC": {
+          "type": "string"
+        },
+        "arrivalDateTime": {
+          "type": "string"
+        },
+        "arrivalDateTimeUTC": {
+          "type": "string"
+        },
+        "locationNameExtended": {
+          "type": "object",
+          "$ref": "abcExtendedLocation.json"
+        }
+      }
+    }
+  }
+}

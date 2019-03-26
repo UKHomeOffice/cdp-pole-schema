@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "title": "ABC extension to object to hold extented Craft attributes",
+  "version": "0.11",
+  "additionalProperties":false,
+  "properties": {
+    "transportType": {
+      "type": "string"
+    },
+    "vesselName": {
+      "type": "string"
+    },
+    "registrationNumber": {
+      "type": "string"
+    },
+    "registrationCountryCode": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "make": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "ownerOrganisation": {
+      "type": "string"
+    },
+    "yearBuilt": {
+      "type": "string"
+    },
+    "imoNumber": {
+      "type": "string"
+    },
+    "imoDate": {
+      "type": "string"
+    },
+    "mmSiNumber": {
+      "type": "string"
+    },
+    "callSign": {
+      "type": "string"
+    },
+    "sailMarkings": {
+      "type": "string"
+    },
+    "hullColour": {
+      "type": "string"
+    },
+    "metreLength": {
+      "type": "string"
+    },
+    "tonnage": {
+      "type": "string"
+    },
+    "portOfRegistration": {
+      "type": "object",
+      "$ref": "./abcPort.json"
+    },
+    "ownerName": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        }
+      }
+    },
+    "ownerAddress": {
+      "type": "object",
+      "properties": {
+        "addressLine": {
+          "type": "array","maxItems":5
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "imoRegistryPlace": {
+      "type": "object",
+      "$ref": "./abcPort.json"
+    },
+    "moorings": {
+      "type": "array",
+      "properties": {
+        "mooringLocation": {
+          "type": "object",
+          "$ref": "./abcPort.json"
+        }
+      }
+    }
+  }
+}

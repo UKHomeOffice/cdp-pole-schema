@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/types/mixedidx/single/default_analyzer/string",
+  "title": "String variable in a mixed index",
+  "description": "Used to define variables that are indexed using a mixed index (elasticsearch), and stored as Text and a string in elastic search",
+  "version": "0.11",
+  "graphIndexType": "mixed",
+  "graphMapping": "STRING",
+  "graphUnique": false,
+  "graphPropertyType": "String",
+  "graphCardinality": "SINGLE",
+  "graphAnalyzer": null,
+  "enum": [
+    "P",
+    "O",
+    "L",
+    "E",
+    "A"
+  ]
+}

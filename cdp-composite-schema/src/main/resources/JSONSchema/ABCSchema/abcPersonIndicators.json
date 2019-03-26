@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "title": "ABC extension to association to hold person indicators",
+  "version": "0.11",
+  "additionalProperties":false,
+  "properties": {
+    "passengerType": {
+      "type": "string"
+    },
+    "portOfEmbark": {
+      "type": "string"
+    },
+    "portOfDisembark": {
+      "type": "string"
+    },
+    "eventCode": {
+      "type": "string"
+    },
+    "lastReportedStatus": {
+      "type": "string"
+    },
+    "noBaggage": {
+      "type": "boolean"
+    }
+  }
+}

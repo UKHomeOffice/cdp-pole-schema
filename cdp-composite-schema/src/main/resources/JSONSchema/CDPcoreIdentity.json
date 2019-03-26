@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Identity Core",
+  "description": "CDP core Identity Schema",
+  "version": "0.11.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "persons",
+    "surname"
+  ],
+  "properties": {
+    "persons": {
+      "type": "array",
+      "description": "array of person ID, the matched set for this identity",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "matchset": {
+            "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+          },
+          "personId": {
+            "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+          }
+        }
+      }
+    },
+    "surname": {
+      "$ref": "./types/mixedidx/single/custom_analyzer/cdp_word_delimiter/textstring.json",
+      "description": "the person surname"
+    },
+    "givenNames": {
+      "$ref": "./types/mixedidx/single/custom_analyzer/cdp_word_delimiter/textstring.json",
+      "description": "the person givennames,forenames"
+    },
+    "fullName": {
+      "$ref": "./types/mixedidx/single/custom_analyzer/cdp_word_delimiter/textstring.json",
+      "description": "the person fullname, i.e. givenNames + optional secondName + surname"
+    },
+    "title": {
+      "$ref": "./types/mixedidx/set/string.json",
+      "description": "array of titles"
+    },
+    "dateOfBirth": {
+      "type": "object",
+      "description": "many ways of storing date of birth",
+      "properties": {
+        "DoB": {
+          "$ref": "./types/mixedidx/single/default_analyzer/date.json"
+        },
+        "dayOfBirth": {
+          "type": "string"
+        },
+        "monthOfBirth": {
+          "type": "string"
+        },
+        "yearOfBirth": {
+          "type": "string"
+        }
+      }
+    },
+    "gender": {
+
+      "$ref": "./types/mixedidx/single/default_analyzer/enum_gender.json"
+    },
+    "nationality": {
+      "$ref": "./types/mixedidx/set/string.json"
+    },
+    "placeOfBirth": {
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "religion": {
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "maritalStatus": {
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    }
+  }
+}

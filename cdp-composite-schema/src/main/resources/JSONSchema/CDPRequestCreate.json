@@ -1,0 +1,78 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "classpath://JSONSchema/CDPRequestCreate.json",
+  "type": "object",
+  "title": "Schema for CDP Create Requests",
+  "required": [
+    "headers",
+    "associations",
+    "poles"
+  ],
+  "properties": {
+    "headers": {
+      "$id": "#/properties/headers",
+      "items": {
+        "properties": {
+          "operationType": {
+            "$id": "#/properties/headers/operationType",
+            "type": "string",
+            "title": "The Core.from Schema",
+            "default": 100,
+            "enum": [
+              "Create",
+              "Update"
+            ]
+
+          },
+          "retryCount": {
+            "$id": "#/properties/headers/retryCount",
+            "type": "integer",
+            "title": "The Core.from Schema",
+            "default": 100,
+            "examples": [
+              1
+            ]
+
+          },
+          "minTimeoutMs": {
+            "$id": "#/properties/headers/minTimeoutMs",
+            "type": "number",
+            "title": "The Core.from Schema",
+            "default": 1,
+            "examples": [
+              1
+            ]
+
+          },
+          "maxTimeoutMs": {
+            "$id": "#/properties/headers/maxTimeoutMs",
+            "type": "number",
+            "title": "The Core.from Schema",
+            "default": 1,
+            "examples": [
+              1
+            ]
+
+          }
+
+        }
+      }
+    },
+    "associations": {
+      "$id": "#/properties/associations",
+      "type": "array",
+      "title": "The Associations Schema",
+      "items": {
+        "$ref": "./CDPcoreAssociation.json"
+      }
+    },
+    "poles": {
+      "type": "array",
+      "title": "The Poles Schema",
+      "items": {
+        "$ref": "./CDPPOLETypes.json"
+      }
+    }
+  }
+}

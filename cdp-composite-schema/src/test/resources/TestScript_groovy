@@ -1,0 +1,29 @@
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import uk.gov.cdp.pole.domain.GraphJsonSchemaTranslator
+
+def testTraversal(def schemaURL) {
+  JsonSlurper slurper = new JsonSlurper();
+
+
+  boolean res =  false;
+  use(GraphJsonSchemaTranslator){
+    Object schema = slurper.parse((URL)schemaURL);
+
+    res =  schema.traverseSchema("")
+
+  }
+
+  return res;
+}
+
+def testGraphIndices (def schemaURLStr){
+
+
+
+  String  actual = GraphJsonSchemaTranslator.getGraphSchemaInfo(schemaURLStr)
+
+
+  return   actual;
+}

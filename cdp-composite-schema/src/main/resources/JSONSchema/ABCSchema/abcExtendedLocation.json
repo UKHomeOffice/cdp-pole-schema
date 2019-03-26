@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "description": "ABC extended location schema",
+    "version": "0.11",
+    "type": "object",
+    "allOf": [
+      {
+        "type": "object",
+        "properties": {
+          "iataCode": {"type": "string","maxlength":13},
+          "icaoCode": {"type": "string","maxlength":13},
+          "unloCode": {"type": "string","maxlength":13},
+          "coordinates": {
+            "type": "object",
+            "properties": {
+              "latitude": {"type": "string","maxlength":6},
+              "longitude": {"type": "string","maxlength":6}
+            }
+          },
+          "address": {
+            "type": "object",
+            "properties": {
+              "addressLine": {"type": "array","maxItems":5},
+              "postCode": {"type": "string"},
+              "country": {"type": "string"}
+            }
+          },
+          "description": {"type": "string"}
+        }
+      },
+      {
+        "oneOf": [
+          {"required": ["iataCode"]},
+          {"required": ["icaoCode"]},
+          {"required": ["unloCode"]},
+          {"required": ["coordinates"]},
+          {"required": ["address"]},
+          {"required": ["description"]}
+        ]
+      }
+    ]
+}

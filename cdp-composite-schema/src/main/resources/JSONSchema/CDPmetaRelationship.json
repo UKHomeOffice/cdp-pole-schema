@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CDP Relationship list",
+  "description": "A list of valid relationships in CDP Associations",
+  "version": "0.11",
+  "additionalProperties": false,
+  "type": "string",
+  "enum": [
+    "Matched",
+    "Travelled",
+    "Travelled with",
+    "Depart from",
+    "Arrive at",
+    "Embark at",
+    "Disembark at",
+    "Booked",
+    "Booked on",
+    "Booking for",
+    "Booking message",
+    "On",
+    "Owns",
+    "Holds",
+    "Identifies",
+    "DCS drop",
+    "API drop",
+    "PNR drop",
+    "Journey with",
+    "Leg from",
+    "Leg to",
+    "Leg"
+  ],
+
+  "graphIndexType": "none",
+  "graphPropertyType": "EdgeLabel",
+
+  "graphMapping": "STRING",
+  "graphUnique": false,
+  "graphCardinality": "SINGLE",
+  "graphAnalyzer": null
+}

@@ -1,0 +1,92 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "description": "CDP Ingest Result - message returned to tenant",
+    "version": "0.11.1",
+    "type": "object",
+    "required": ["messageGUID", "result"],
+    "properties": {
+      "messageGUID": {
+        "type": "string",
+        "description": "GUID of incoming message"
+      },
+      "result": {
+        "type": "string",
+        "enum": ["Failure","Success"]
+      },
+      "ingestDateTime": {
+        "type": "string",
+        "format": "date-time",
+        "description": "date /time when this message has been produced"
+      },
+      "poleGUIDs": {
+        "type": "array",
+        "description": "List of POLE GUIDs created and operation performed C(reate), U(pdate), M(atched)",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "id of POLE object in incoming batch message / unique id for message in messageGUID not unique",
+              "type": "string"
+            },
+            "poleGUID": {
+              "type": "string"
+            },
+            "poleType": {
+              "description": "same as m.type",
+              "type": "string"
+            },
+            "action": {
+              "type": "string",
+              "enum": ["C","U","M"]
+            },
+            "associations": {
+              "type": "array",
+              "items": {
+              "type": "object",
+              "properties": {
+                  "associatId": {
+                    "description": "id of POLE object in incoming batch message / unique id for message in messageGUID not unique",
+                    "type": "string"
+                  },
+                  "fromGUID": {"type": "string"},
+                  "toGUID": {"type": "string"}
+                  }
+              }
+            }
+          }
+        }
+      },
+      "numberOfAssociationsCreated": {
+        "type": "integer",
+        "description": "Associations created during message processing"
+      },
+      "failedMessage": {
+        "type": "string",
+        "description": "copy of message that failed"
+      },
+      "errorNumber": {
+        "type": "string",
+        "description": "Unique CDP error number"
+      },
+      "description": {
+          "type": "string",
+          "description": "Description of error"
+      },
+      "trace": {
+          "type": "string",
+          "description": "Detailed error information, e.g.stack trace"
+      }
+    },
+    "oneOf": [
+    {
+      "required": [
+          "errorNumber", "description"
+      ]
+    },
+    {
+      "required": [
+        "poleGUIDs"
+      ]
+    }
+  ]
+}

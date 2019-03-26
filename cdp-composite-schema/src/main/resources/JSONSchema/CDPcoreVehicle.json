@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "description": "CDP core Vehicle Schema. type = O, subType = Vehicle",
+    "version": "0.11",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["objectType","registrationNumber"],
+    "properties": {
+      "objectType": {
+        "type": "string",
+        "enum": ["Vehicle"]
+      },
+      "registrationNumber": {
+        "type": "string",
+        "description": "Vehicle Registration Number"
+      },
+      "vehicleType": {
+        "type": "string",
+        "$ref": "./CDPVehicleType.json",
+        "description": "Vehicle type"
+      },
+      "make": {
+        "type": "string",
+        "description": "Vehicle Make"
+      },
+      "model": {
+        "type": "string",
+        "description": "Vehicle Model"
+      },
+      "vin": {
+        "type": "string",
+        "description": "Vehicle Identification Number"
+      },
+      "registrationCountry": {
+        "type": "string",
+        "description": "Vehicle Country of Registration"
+      },
+      "year": {
+        "type": "string",
+        "description": "Vehicle year of Registration"
+      },
+      "colour": {
+        "type": "string",
+        "description": "Vehicle Colour"
+      }
+    }
+}

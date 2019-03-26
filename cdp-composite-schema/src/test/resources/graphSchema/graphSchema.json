@@ -1,0 +1,675 @@
+{
+  "elasticSearchTemplates": [
+    {
+      "name": "cdp_word_delimiter",
+      "body": {
+        "index_patterns": [
+          "janusgraph*by_p.identity_mixedidx"
+        ],
+        "order": 0,
+        "settings": {
+          "analysis": {
+            "filter": {
+              "cdp_word_delimiter_filter": {
+                "type": "word_delimiter",
+                "catenate_words": true,
+                "preserve_original": true,
+                "generate_word_parts": false,
+                "generate_number_parts": false
+              }
+            },
+            "analyzer": {
+              "cdp_word_delimiter": {
+                "filter": [
+                  "lowercase",
+                  "cdp_word_delimiter_filter"
+                ],
+                "tokenizer": "whitespace"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+
+  "propertyKeys": [
+    {
+      "name": "P.identity.core.dateOfBirth.DoB",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.fullName",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.gender",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.givenNames",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.maritalStatus",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.nationality",
+      "dataType": "String",
+      "cardinality": "SET"
+    },
+    {
+      "name": "P.identity.core.persons.matchset",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.persons.personId",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.placeOfBirth",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.religion",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.surname",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.core.title",
+      "dataType": "String",
+      "cardinality": "SET"
+    },
+    {
+      "name": "P.identity.id",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.correlationId",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.create",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.createBy",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.createSource",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.identityId",
+      "dataType": "String",
+      "cardinality": "SET"
+    },
+    {
+      "name": "P.identity.meta.m.matchSet",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.matchStatus",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.owner",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.retention.action",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.retention.actionDate",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.retention.actionRole",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.retention.review",
+      "dataType": "Boolean",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.retention.reviewDate",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.source",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.type",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.update",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.updateBy",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.identity.meta.m.version",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.id",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.correlationId",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.create",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.createBy",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.createSource",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.identityId",
+      "dataType": "String",
+      "cardinality": "SET"
+    },
+    {
+      "name": "P.person.meta.m.matchSet",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.matchStatus",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.owner",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.retention.action",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.retention.actionDate",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.retention.actionRole",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.retention.review",
+      "dataType": "Boolean",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.retention.reviewDate",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.source",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.type",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.update",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.updateBy",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "P.person.meta.m.version",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "association.relationship",
+      "dataType": "EdgeLabel",
+      "cardinality": "SINGLE"
+    }
+  ],
+  "vertexLabels": [
+    {
+      "name": "P.identity",
+      "partition": false,
+      "useStatic": false
+    },
+    {
+      "name": "P.person",
+      "partition": false,
+      "useStatic": false
+    }
+  ],
+  "edgeLabels": [
+    {
+      "name": "API drop",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Arrive at",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Booked",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Booked on",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Booking for",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Booking message",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "DCS drop",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Depart from",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Disembark at",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Embark at",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Holds",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Identifies",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Journey with",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Leg",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Leg from",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Leg to",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Matched",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "On",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Owns",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "PNR drop",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Travelled",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    },
+    {
+      "name": "Travelled with",
+      "multiplicity": "MULTI",
+      "unidirected": false
+    }
+  ],
+  "vertexIndexes": [
+    {
+      "name": "by_P.identity_compositeIdx",
+      "unique": false,
+      "composite": true,
+      "indexOnly": null,
+      "mixedIndex": null,
+      "propertyKeys": [
+        "P.identity.id"
+      ],
+      "propertyKeyMappings": {
+        "P.identity.id": {
+          "mapping": "STRING"
+        }
+      }
+    },
+    {
+      "name": "by_P.identity_mixedIdx",
+      "unique": false,
+      "composite": false,
+      "indexOnly": null,
+      "mixedIndex": "search",
+      "propertyKeys": [
+        "P.identity.core.dateOfBirth.DoB",
+        "P.identity.core.fullName",
+        "P.identity.core.gender",
+        "P.identity.core.givenNames",
+        "P.identity.core.maritalStatus",
+        "P.identity.core.nationality",
+        "P.identity.core.persons.matchset",
+        "P.identity.core.persons.personId",
+        "P.identity.core.placeOfBirth",
+        "P.identity.core.religion",
+        "P.identity.core.surname",
+        "P.identity.core.title",
+        "P.identity.meta.m.correlationId",
+        "P.identity.meta.m.create",
+        "P.identity.meta.m.createBy",
+        "P.identity.meta.m.createSource",
+        "P.identity.meta.m.identityId",
+        "P.identity.meta.m.matchSet",
+        "P.identity.meta.m.matchStatus",
+        "P.identity.meta.m.owner",
+        "P.identity.meta.m.retention.action",
+        "P.identity.meta.m.retention.actionDate",
+        "P.identity.meta.m.retention.actionRole",
+        "P.identity.meta.m.retention.review",
+        "P.identity.meta.m.retention.reviewDate",
+        "P.identity.meta.m.source",
+        "P.identity.meta.m.type",
+        "P.identity.meta.m.update",
+        "P.identity.meta.m.updateBy",
+        "P.identity.meta.m.version"
+      ],
+      "propertyKeyMappings": {
+        "P.identity.core.dateOfBirth.DoB": {
+          "mapping": "DEFAULT"
+        },
+        "P.identity.core.fullName": {
+          "mapping": "TEXTSTRING",
+          "analyzer": {
+            "name": "text-analyzer",
+            "value": "cdp_word_delimiter"
+          }
+        },
+        "P.identity.core.gender": {
+          "mapping": "STRING"
+        },
+        "P.identity.core.givenNames": {
+          "mapping": "TEXTSTRING",
+          "analyzer": {
+            "name": "text-analyzer",
+            "value": "cdp_word_delimiter"
+          }
+        },
+        "P.identity.core.maritalStatus": {
+          "mapping": "STRING"
+        },
+        "P.identity.core.nationality": {
+          "mapping": "STRING"
+        },
+        "P.identity.core.persons.matchset": {
+          "mapping": "STRING"
+        },
+        "P.identity.core.persons.personId": {
+          "mapping": "STRING"
+        },
+        "P.identity.core.placeOfBirth": {
+          "mapping": "STRING"
+        },
+        "P.identity.core.religion": {
+          "mapping": "STRING"
+        },
+        "P.identity.core.surname": {
+          "mapping": "TEXTSTRING",
+          "analyzer": {
+            "name": "text-analyzer",
+            "value": "cdp_word_delimiter"
+          }
+        },
+        "P.identity.core.title": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.correlationId": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.create": {
+          "mapping": "DEFAULT"
+        },
+        "P.identity.meta.m.createBy": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.createSource": {
+          "mapping": "DEFAULT"
+        },
+        "P.identity.meta.m.identityId": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.matchSet": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.matchStatus": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.owner": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.retention.action": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.retention.actionDate": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.retention.actionRole": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.retention.review": {
+          "mapping": "DEFAULT"
+        },
+        "P.identity.meta.m.retention.reviewDate": {
+          "mapping": "DEFAULT"
+        },
+        "P.identity.meta.m.source": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.type": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.update": {
+          "mapping": "DEFAULT"
+        },
+        "P.identity.meta.m.updateBy": {
+          "mapping": "STRING"
+        },
+        "P.identity.meta.m.version": {
+          "mapping": "STRING"
+        }
+      }
+    },
+    {
+      "name": "by_P.person_compositeIdx",
+      "unique": false,
+      "composite": true,
+      "indexOnly": null,
+      "mixedIndex": null,
+      "propertyKeys": [
+        "P.person.id"
+      ],
+      "propertyKeyMappings": {
+        "P.person.id": {
+          "mapping": "STRING"
+        }
+      }
+    },
+    {
+      "name": "by_P.person_mixedIdx",
+      "unique": false,
+      "composite": false,
+      "indexOnly": null,
+      "mixedIndex": "search",
+      "propertyKeys": [
+        "P.person.meta.m.correlationId",
+        "P.person.meta.m.create",
+        "P.person.meta.m.createBy",
+        "P.person.meta.m.createSource",
+        "P.person.meta.m.identityId",
+        "P.person.meta.m.matchSet",
+        "P.person.meta.m.matchStatus",
+        "P.person.meta.m.owner",
+        "P.person.meta.m.retention.action",
+        "P.person.meta.m.retention.actionDate",
+        "P.person.meta.m.retention.actionRole",
+        "P.person.meta.m.retention.review",
+        "P.person.meta.m.retention.reviewDate",
+        "P.person.meta.m.source",
+        "P.person.meta.m.type",
+        "P.person.meta.m.update",
+        "P.person.meta.m.updateBy",
+        "P.person.meta.m.version"
+      ],
+      "propertyKeyMappings": {
+        "P.person.meta.m.correlationId": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.create": {
+          "mapping": "DEFAULT"
+        },
+        "P.person.meta.m.createBy": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.createSource": {
+          "mapping": "DEFAULT"
+        },
+        "P.person.meta.m.identityId": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.matchSet": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.matchStatus": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.owner": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.retention.action": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.retention.actionDate": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.retention.actionRole": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.retention.review": {
+          "mapping": "DEFAULT"
+        },
+        "P.person.meta.m.retention.reviewDate": {
+          "mapping": "DEFAULT"
+        },
+        "P.person.meta.m.source": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.type": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.update": {
+          "mapping": "DEFAULT"
+        },
+        "P.person.meta.m.updateBy": {
+          "mapping": "STRING"
+        },
+        "P.person.meta.m.version": {
+          "mapping": "STRING"
+        }
+      }
+    }
+  ]
+}

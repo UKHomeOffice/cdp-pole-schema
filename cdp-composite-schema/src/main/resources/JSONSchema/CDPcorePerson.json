@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Person Core",
+  "description": "CDP core Person Schema",
+  "version": "0.11",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "identities"
+  ],
+  "properties": {
+    "matchset": {
+      "$ref": "types/mixedidx/set/string.json"
+    },
+    "identities": {
+      "$ref": "types/mixedidx/set/string.json",
+      "description": "array of identities, the matched set for a person"
+    }
+  }
+}
