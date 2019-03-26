@@ -4,12 +4,12 @@ import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-class GraphJsonSchemaTranslator {
+public class GraphJsonSchemaTranslator {
   private static Map<String, Object> loadedSchemas = new HashMap<>()
 
   private static Map<String, Object> graphByPropertyNames = new HashMap<>();
 
-  static Object resolveSchema(uri, parentSchema = null) {
+  public static Object resolveSchema(uri, parentSchema = null) {
     uri = resolveUri(uri, parentSchema);
     if (!loadedSchemas.containsKey(uri)) {
       tryToLoad(uri);

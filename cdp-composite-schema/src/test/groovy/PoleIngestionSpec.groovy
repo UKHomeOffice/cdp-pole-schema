@@ -1,4 +1,3 @@
-import cdp.groovy.test.GroovyTester
 import groovy.json.JsonBuilder
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
@@ -8,15 +7,28 @@ import org.everit.json.schema.loader.SchemaLoader
 import org.json.JSONObject
 import org.json.JSONTokener
 import spock.lang.Specification
+import uk.gov.cdp.pole.domain.GraphJsonSchemaTranslator
 
-class PoleIngestionSpec extends Specification implements GroovyTester {
+class PoleIngestionSpec extends Specification  {
 
-  static final String scriptFile = "src/test/resources/TestScript_groovy";
+//  static final String scriptFile = "src/test/resources/TestScript.groovy";
 
-  @Override
-  def getScript() {
-    return scriptFile;
+  def testTraversal(def schemaURL) {
+    JsonSlurper slurper = new JsonSlurper();
+
+
+    boolean res =  false;
+    use(GraphJsonSchemaTranslator){
+      Object schema = slurper.parse((URL)schemaURL);
+
+      res =  schema.traverseSchema("")
+
+    }
+
+    return res;
   }
+
+
 
 
   def "load the JSON Schema and try various JSON inputs"() {
@@ -26,8 +38,7 @@ class PoleIngestionSpec extends Specification implements GroovyTester {
       JSONObject rawSchema = new JSONObject(new JSONTokener((InputStream) inputStream));
 
     and: 'load and validate the schema'
-      SchemaClient schemaClient = SchemaClient.classPathAwareClient();
-      Schema schema = SchemaLoader.load(rawSchema, schemaClient);
+      Schema schema = SchemaLoader.load(rawSchema, SchemaClient.classPathAwareClient());
       String errorString = null;
 
       JsonSlurper slurper = new JsonSlurper();
@@ -68,25 +79,14 @@ class PoleIngestionSpec extends Specification implements GroovyTester {
   }
 
 
-  def "test the graph schema loader"() {
-
-    when: 'The CDP JSON Schema is loaded'
-      def result = invokeScriptMethod("testTraversal", (URL) schemaPath)
-
-    then:
-
-      result == res
-    where:
-      schemaPath                                                     | res
-      getClass().getResource("JSONSchema/CDPGraphSchema.json") | true
-
-  }
-
 
   def "test the graph schema loader for indices Map"() {
 
     when: 'The CDP JSON Schema is loaded'
-      String result = invokeScriptMethod("testGraphIndices", (String) schemaPath)
+
+      System.out.println("schemaPath = ${schemaPath}; ")
+      def result = GraphJsonSchemaTranslator.getGraphSchemaInfo(schemaPath)
+
       JsonSlurper slurper = new JsonSlurper();
       URL expectedFileURL = getClass().getResource(expectedFile);
 
@@ -101,6 +101,21 @@ class PoleIngestionSpec extends Specification implements GroovyTester {
     where:
       schemaPath                        | expectedFile
       "/JSONSchema/CDPGraphSchema.json" | "/graphSchema/graphSchema.json"
+
+  }
+
+
+  def "test the graph schema loader"() {
+
+    when: 'The CDP JSON Schema is loaded'
+      def result = testTraversal(schemaPath)
+
+    then:
+
+      result == res
+    where:
+      schemaPath                                                     | res
+      getClass().getResource("JSONSchema/CDPGraphSchema.json") | true
 
   }
 
