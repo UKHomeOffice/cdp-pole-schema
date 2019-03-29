@@ -12,7 +12,7 @@
         <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
         <fmt-maven-plugin.version>2.1.0</fmt-maven-plugin.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
-        <jackson-databind.version>2.9.1</jackson-databind.version>
+        <jackson-databind.version>[2.9.8,)</jackson-databind.version>
         <maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
         <slf4j.version>1.7.25</slf4j.version>
         <commons-lang.version>2.6</commons-lang.version>
