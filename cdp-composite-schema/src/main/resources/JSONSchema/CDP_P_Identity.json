@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["P.identity"],
+  "properties": {
+    "P.identity": {
+
+      "type": "object",
+      "required": [
+        "id",
+        "meta",
+        "core"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "./types/id.json"
+        },
+        "meta": {
+          "$ref": "./CDPmetadata.json"
+        },
+        "core": {
+          "$ref": "./CDPcoreIdentity.json"
+        },
+        "domain": {
+          "anyOf": [
+            {
+              "$ref": "./ABCSchema/AbcIdentity.json"
+            }
+          ],
+          "title": "Domain Object",
+          "description": "This accepts any business domain data, as long as it's valid JSON."
+        }
+      }
+
+
+    }
+  }
+
+}
+

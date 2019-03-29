@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "0.11",
+  "title": "The POLE Types",
+  "anyOf":  [
+    {
+      "$ref": "./CDP_P_Identity.json"
+    },
+    {
+      "$ref": "./CDP_P_Person.json"
+    }
+  ]
+}

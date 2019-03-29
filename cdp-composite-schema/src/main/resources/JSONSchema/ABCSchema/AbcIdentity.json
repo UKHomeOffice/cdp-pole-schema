@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Person Identity - Pole Object",
+  "version": "0.11",
+  "additionalProperties":false,
+  "properties": {
+    "passengerType": {
+      "type": "string"
+    },
+    "portOfDisembark": {
+      "type": "string"
+    },
+    "portOfEmbark": {
+      "type": "string"
+    },
+    "inTransitFlag": {
+      "type": "string"
+    },
+    "countryOfResidence": {
+      "type": "string"
+    },
+    "officeOfClearance": {
+      "type": "string"
+    },
+    "pnrLocator": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "purposeOfVisit": {
+      "type": "string"
+    },
+    "lengthOfStayInUK": {
+      "type": "string"
+    },
+    "visaHolder": {
+      "type": "string"
+    },
+    "cabin": {
+      "type": "string"
+    },
+    "interactiveDetail": {
+      "type": "object",
+      "properties": {
+        "passengerIdentifier": {
+          "type": "string"
+        },
+        "redressNo": {
+          "type": "string"
+        },
+        "knownTravellerNo": {
+          "type": "string"
+        }
+      }
+    },
+    "frequentFlyerNumber": {
+      "type": "string"
+    },
+    "cabinClass": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "sequenceNumber": {
+      "type": "string"
+    },
+    "securityNumber": {
+      "type": "string"
+    },
+    "checkInAgent": {
+      "type": "string"
+    },
+    "checkInLocation": {
+      "type": "string"
+    },
+    "checkInDateTime": {
+      "type": "string"
+    },
+    "seatNumber": {
+      "type": "string"
+    },
+    "ticketStatus": {
+      "type": "string"
+    },
+    "ticketNumber": {
+      "type": "string"
+    },
+    "checkedInCount": {
+      "type": "integer"
+    },
+    "checkedInWeight": {
+      "type": "string"
+    },
+    "carryOnCount": {
+      "type": "integer"
+    },
+    "passengerSeq": {
+      "type": "string"
+    },
+    "pooledTo": {
+      "type": "string"
+    },
+    "pnrPassengerRef": {
+      "type": "string"
+    },
+    "masterPNRLocator": {
+      "type": "string"
+    },
+    "splitPNR": {
+      "type": "string"
+    },
+    "travelAgent": {
+      "type": "string"
+    },
+    "bookingDate": {
+      "type": "string"
+    },
+    "creationDate": {
+      "type": "string"
+    },
+    "modifiedDate": {
+      "type": "string"
+    },
+    "retrievedDate": {
+      "type": "string"
+    },
+    "accompaniedByInfant": {
+      "type": "string"
+    },
+    "unaccompaniedMinor": {
+      "type": "string"
+    },
+    "passengerStatus": {
+      "type": "string"
+    },
+    "manifestPersonSeq": {
+      "type": "string"
+    },
+    "passengerTypeCode": {
+      "type": "string"
+    },
+    "uniquePassengerId": {
+      "type": "string"
+    },
+    "membershipLevel": {
+      "type": "string"
+    },
+    "portOfDisembarkionExtended": {
+      "type": "object",
+      "$ref": "./abcExtendedLocation.json"
+    },
+    "portOfEmbarkionExtended": {
+      "type": "object",
+      "$ref": "./abcExtendedLocation.json"
+    },
+    "homeAddress": {
+      "type": "object",
+      "properties": {
+        "addressLine": {
+          "type": "array","maxItems":5
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "crewAllowance": {
+      "type": "object",
+      "properties": {
+        "goodsToDeclare": {
+          "type": "string"
+        },
+        "purposeOfVisit": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "goodsToDeclare",
+        "purposeOfVisit"
+      ]
+    },
+    "visitingAddress": {
+      "type": "object",
+      "properties": {
+        "addressLine": {
+          "type": "array","maxItems":5
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "contactNumber": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "phoneNumber": {
+            "type": "string"
+          },
+          "phoneNumberType": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "phoneNumber",
+          "phoneNumberType"
+        ]
+      }
+    },
+    "identityIndicators": {
+      "type": "object",
+      "description": "Set of ABC calculated indicators",
+      "properties": {
+        "age": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

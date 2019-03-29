@@ -1,0 +1,61 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "description": "CDP core TravelDocument Schema. type = O, subType = document, objectType TravelDocument",
+    "version": "0.11.1",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["objectType","documentNumber"],
+    "properties": {
+      "objectType": {
+        "type": "string",
+        "enum": ["TravelDocument"]
+      },
+      "documentNumber": {
+        "$ref": "types/mixedidx/single/default_analyzer/string.json",
+        "description": "Travel Document Number"
+      },
+      "documentType": {
+        "type": "string",
+        "description": "Travel Document Type"
+      },
+      "surname":  {
+        "type": "string",
+        "description": "the person surname as on passport"
+      },
+      "givenNames": {
+        "type": "string",
+        "description": "the person givennames,forenames as on passport"
+      },
+      "fullName":  {
+        "type": "string",
+        "description": "the person fullname, as on passport"
+      },
+      "countryOfIssue": {
+        "type": "string",
+        "description": "Country of Issue"
+      },
+      "dateOfBirth": {
+        "type": "string",
+        "description": "Date of Birth as on passport"
+      },
+      "gender": {
+        "type": "string",
+        "description": "Gender as on passport"
+      },
+      "dateOfIssue": {
+        "type": "string",
+        "description": "Date of Issue as on passport"
+      },
+      "dateOfExpiry": {
+        "type": "string",
+        "description": "Date of Expiry as on passport"
+      },
+      "cityOfIssue": {
+        "type": "string",
+        "description": "City of Issue as on passport"
+      },
+      "nationality": {
+        "type": "string"
+      }
+    }
+}

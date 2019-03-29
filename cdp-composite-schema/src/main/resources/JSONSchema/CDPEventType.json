@@ -1,0 +1,9 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "title": "CDP business eventType",
+    "description": "A list of valid eventTypes in the CDP",
+    "version": "0.11",
+    "additionalProperties": false,
+    "type": "string",
+    "enum": [ "apiMessage", "dcsMessage", "pnrMessage", "Booking", "Journey"]
+}

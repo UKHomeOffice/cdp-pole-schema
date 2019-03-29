@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "CDP Meta Use",
+  "description": "A list of valid roles in the CDP",
+  "version": "0.11",
+  "additionalProperties": false,
+  "$ref": "types/mixedidx/set/string.json",
+  "enum": [ "ABC", "HMPO" ],
+  "type": "array",
+  "uniqueItems": true
+
+}

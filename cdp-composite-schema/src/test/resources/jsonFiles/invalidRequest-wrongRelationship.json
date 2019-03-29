@@ -1,0 +1,34 @@
+{
+  "headers": {
+    "operationType": "Create",
+    "retryCount": 100,
+    "minTimeoutMs": 1,
+    "maxTimeoutMs": 100
+  },
+  "associations": [
+    {
+      "sourceId": "654321",
+      "targetId": "123456",
+      "relationship": "blah blah"
+
+    }
+  ],
+  "poles": [
+    {
+      "P.person": {
+        "id": "123456",
+        "meta": {
+          "m.type": "P",
+          "m.subType": "person",
+          "m.owner": "ABC",
+          "m.source": "ABC"
+        },
+        "core": {
+          "matchset": ["aaaa","bbbb"],
+          "identities": ["654321"]
+
+        }
+      }
+    }
+  ]
+}

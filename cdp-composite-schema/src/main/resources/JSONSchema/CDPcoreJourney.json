@@ -1,0 +1,50 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "description": "CDP core Journey Schema. type = E, subType = Journey, eventType Journey",
+    "version": "0.11.1",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["eventType","eventDate","flightCode","departureAirport","arrivalAirport","departureDate"],
+    "properties": {
+      "eventType": {
+        "type": "string",
+        "enum": ["Journey"]
+      },
+      "eventDate":  {
+        "type": "string",
+        "format": "date-time",
+        "description": "date/time the event takes/took place"
+      },
+      "eventStatus":  {
+        "type": "string",
+        "description": "Status of the event"
+      },
+      "flightCode": {
+        "type": "string",
+        "description": "Flight code - carrier/flight number"
+      },
+      "departureAirport": {
+        "type": "string",
+        "description": "Departure airport - IATA code"
+      },
+      "arrivalAirport":  {
+        "type": "string",
+        "description": "Arrival airport - IATA code"
+      },
+      "departureDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Scheduled departure date"
+      },
+      "departureDateTime": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Scheduled departure date time"
+      },
+      "arrivalDateTime": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Scheduled arrival date time"
+      }
+    }
+}

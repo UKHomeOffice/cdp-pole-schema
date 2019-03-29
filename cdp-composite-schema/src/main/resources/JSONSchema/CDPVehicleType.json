@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "CDP Vehicle Type",
+  "description": "A list of valid vehicle types in the CDP",
+  "version": "0.11",
+  "additionalProperties": false,
+  "type": "string",
+  "enum": [ "Bicycle","Coach","Car","Lorry",
+    "Motorcycle","Lorry and drag","Trailer","Tractor unit",
+    "Tractor unit and trailer","Van","Motorhome","Car and caravan",
+    "Car and trailer","Minibus","Van and trailer","Van and caravan",
+    "Abnormal load","Tanker","Horsebox","Lowloader" ]
+}

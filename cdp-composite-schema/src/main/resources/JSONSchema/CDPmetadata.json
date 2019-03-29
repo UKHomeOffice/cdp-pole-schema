@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "classpath://JSONSchema/CDPmetadata.json",
+  "description": "CDP metadata schema",
+  "version": "0.11.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "m.type",
+    "m.subType",
+    "m.owner",
+    "m.source"
+  ],
+  "properties": {
+    "m.type": {
+      "description": "Core POLE Type",
+      "$ref": "./types/mixedidx/single/default_analyzer/enum_pole_type.json"
+    },
+    "m.subType": {
+      "description": "sub type POLE entity",
+      "$ref": "types/mixedidx/single/default_analyzer/enum_pole_subtype.json"
+    },
+    "m.sourceType": {
+      "description": "Association data only",
+      "$ref": "types/mixedidx/single/default_analyzer/enum_pole_type.json"
+    },
+    "m.sourceSubType": {
+      "description": "Association data only",
+      "$ref": "types/mixedidx/single/default_analyzer/enum_pole_subtype.json"
+    },
+    "m.targetType": {
+      "description": "Association data only",
+      "$ref": "types/mixedidx/single/default_analyzer/enum_pole_type.json"
+    },
+    "m.targetSubType": {
+      "description": "Association data only",
+      "$ref": "types/mixedidx/single/default_analyzer/enum_pole_subtype.json"
+    },
+    "m.owner": {
+      "description": "Data Owner directorate / unit",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "m.source": {
+      "description": "Where data is sourced from system/service",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "m.use": {
+      "description": "Array of business roles that have access to data",
+      "$ref": "./CDPmetaUse.json"
+    },
+    "m.identityId": {
+      "description": "id of identity that was created with this POLE entry",
+      "$ref": "./types/mixedidx/set/string.json"
+    },
+    "m.matchSet": {
+      "description": "Used on P(erson) entries to denote a specific set of matched identities",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "m.matchStatus": {
+      "description": "Used on P(erson) identity entries to denote the status of a match",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "m.retention": {
+      "description": "Used to denote any review / retention rules on the entry",
+      "type": "object",
+      "properties": {
+        "review": {
+          "$ref": "./types/mixedidx/single/default_analyzer/boolean.json"
+        },
+        "reviewDate": {
+          "$ref": "./types/mixedidx/single/default_analyzer/date.json"
+        },
+        "action": {
+
+          "$ref": "./types/mixedidx/single/default_analyzer/enum_retention_action.json"
+
+        },
+        "actionRole": {
+          "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+        },
+        "actionDate": {
+          "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+        }
+      }
+    },
+    "m.correlationId": {
+      "description": "Used to maintain linage of POLE objects created from composite transaction",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "m.create": {
+      "description": "Date/time entry created in CDP",
+      "$ref": "./types/mixedidx/single/default_analyzer/date.json"
+    },
+    "m.createSource": {
+      "description": "Date/time entry created in source/legacy system",
+      "$ref": "./types/mixedidx/single/default_analyzer/date.json"
+    },
+    "m.update": {
+      "description": "Date entry last updated",
+      "$ref": "./types/mixedidx/single/default_analyzer/date.json"
+    },
+    "m.createBy": {
+      "description": "who created entry",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "m.updateBy": {
+      "description": "who last updated entry",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+    },
+    "m.version": {
+      "description": "schema version",
+      "$ref": "./types/mixedidx/single/default_analyzer/string.json",
+      "default": "1.1"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/types/mixedidx/single/custom_analyzer/cdp_word/textstring",
+  "title": "Text mapping for a custom cdp_word_delimiter analyzer (use this to handle hyphenated names)",
+  "description": "Used to define variables that are indexed using a mixed index (elasticsearch), and stored as Text and a string in elastic search, using a custom analyzer of type cdp_word_delimiter",
+  "version": "0.11",
+  "additionalProperties": false,
+  "type": "string",
+  "default": "",
+  "graphIndexType": "mixed",
+  "graphMapping": "TEXTSTRING",
+  "graphUnique": true,
+  "graphPropertyType": "String",
+  "graphCardinality": "SINGLE",
+  "graphAnalyzer": {
+    "text-analyzer": "cdp_word_delimiter"
+  }
+
+}

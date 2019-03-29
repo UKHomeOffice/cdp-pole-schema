@@ -1,0 +1,20 @@
+{
+  "P.person": {
+    "id": "123456",
+    "meta": {
+      "m.type": "P",
+      "m.subType": "persona",
+      "m.owner": "ABC",
+      "m.source": "ABC"
+    },
+    "core": {
+      "matchset": [
+        "aaaa",
+        "bbbb"
+      ],
+      "identities": [
+        "654321"
+      ]
+    }
+  }
+}
