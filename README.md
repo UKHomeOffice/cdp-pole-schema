@@ -1,7 +1,28 @@
 # cdp-pole-schema
 
-This is the CDP POLE Schema; it serves two main purposes: 
-1) it provides a composite entrypoint that creates the schema for REST API calls to create POLE entities
-2) it also has a groovy utility to convert the Schema into something that JanusGraph can use to create indices
+## Purpose
+This is the CDP POLE Schema; it serves three main purposes: 
+1) it provides a composite JSON Schema entrypoint that creates the schema for REST API calls to create POLE entities
+2) it provides a composite JSON Schema entrypoint that creates a JanusGraph schema with indices and properties
+3) it provides a groovy utility to convert the Schema into something that JanusGraph can use to create indices
 
-The best place to start is by looking at the test case under [[https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/test/groovy/PoleIngestionSpec.groovy]]
+
+## Getting started
+
+The best place to start is by looking at the test case under [PoleIngestionSpec](https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/test/groovy/PoleIngestionSpec.groovy).  That has tests that validate various parts of the schema, with valid and invalid JSON files, and also has tests that validate the conversion from the JSON Schema to the format that Graph understands.
+
+The composite JSON Schema entrypoint that creates the schema for REST API calls is here: [CDPRequestCreate.json](https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/main/resources/JSONSchema/CDPRequestCreate.json)
+
+The composite JSON Schema entrypoint that creates the JanusGraph schema with indices and properties is here: [CDPGraphSchema.json](https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/main/resources/JSONSchema/CDPGraphSchema.json)
+  
+## Tests  
+
+To run the test cases, simply execute mvn install
+
+
+## Future direction
+In the near future, we will be splitting this repo into 4 or more parts:
+  - CDP core - which will be a public git repo with all the core components for POLE entitites
+  - CDP meta - which will be also a public git repo with all the meta components for POLE entitites
+  - <Data Owner> domain - which will be a private git repo with data-owner specific domain parts
+  - <Data Owner> Schema - which will be a composite schema that pulls in parts of the three repos above, and will likely have the code in this current repo.
