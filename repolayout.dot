@@ -1,0 +1,38 @@
+digraph{
+  node [shape=rectangle]
+
+  # core
+  pole_schema_schema [label="github.com/ukhomeoffice/cdp_schema_schema"]
+  pole_core [label="github.com/ukhomeoffice/pole_core"]
+  cdp_pole_meta [label="github.com/ukhomeoffice/cdp_pole_meta"]
+
+  cdp_demo_cdp_instance [label="github.com/ukhomeoffice/cdp_demo_cdp_instance"]
+  cdp_demo_pole_domain [label="gitgithub.com/ukhomeoffice/cdp_demo_pole_domain"]
+
+  abc_instance [label="gitlab/cdp_code/abc_cdp_instance"]
+  abc_pole_domain [label="gitlab/cdp_code/abc_pole_domain"]
+
+
+  hmpo_instance [label="gitlab/cdp_code/hmpo_cdp_instance"]
+  hmpo_pole_domain [label="gitlab/cdp_code/hmpo_pole_domain"]
+
+  cdp_demo_pole_domain -> pole_schema_schema
+
+
+  abc_pole_domain -> pole_schema_schema
+  hmpo_pole_domain -> pole_schema_schema
+  pole_core -> pole_schema_schema
+  cdp_pole_meta -> pole_schema_schema
+
+  cdp_demo_cdp_instance -> cdp_demo_pole_domain
+  cdp_demo_cdp_instance -> pole_core
+  cdp_demo_cdp_instance -> cdp_pole_meta
+
+  abc_instance -> abc_pole_domain
+  abc_instance -> pole_core
+  abc_instance -> cdp_pole_meta
+
+  hmpo_instance -> hmpo_pole_domain
+  hmpo_instance -> pole_core
+  hmpo_instance -> cdp_pole_meta
+}
