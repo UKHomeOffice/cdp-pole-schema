@@ -1,0 +1,13 @@
+---
+pipeline:
+
+  maven-test:
+    image: maven
+    commands:
+    - mvn install
+
+  faker-test:
+    image: node
+    commands:
+    - npm install
+    - npm run faker
