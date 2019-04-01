@@ -17,12 +17,17 @@ The composite JSON Schema entrypoint that creates the JanusGraph schema with ind
   
 ## Tests  
 
-To run the test cases, simply execute mvn install
+To run the test cases, simply execute `mvn install` or you can use docker `docker run --rm -ti -v $(pwd):/app -w /app maven mvn install`
 
+To generate some fake requests: `docker run --rm -ti -v $(pwd):/app -w /app node:alpine sh -c "npm i;npm run faker"`
 
 ## Future direction
+
 In the near future, we will be splitting this repo into 4 or more parts:
   - CDP core - which will be a public git repo with all the core components for POLE entitites
   - CDP meta - which will be also a public git repo with all the meta components for POLE entitites
   - <Data Owner> domain - which will be a private git repo with data-owner specific domain parts
   - <Data Owner> Schema - which will be a composite schema that pulls in parts of the three repos above, and will likely have the code in this current repo.
+
+[repolayout.dot](https://g.cns.me/UKHomeOffice/cdp-pole-schema/blob/CNS-tidyup-review/repolayout.dot)
+![](https://g.cns.me/UKHomeOffice/cdp-pole-schema/blob/CNS-tidyup-review/repolayout.dot)
