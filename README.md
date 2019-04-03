@@ -17,7 +17,7 @@ The composite JSON Schema entrypoint that creates the JanusGraph schema with ind
   
 ## Tests  
 
-To run the test cases, simply execute `mvn install` or you can use docker `docker run --rm -ti -v $(pwd):/app -w /app maven mvn install`
+To run the test cases, simply execute `mvn install` or you can use docker `docker run --rm -ti -v $(pwd):/app -w /app maven:3.6-jdk-8-alpine mvn install`
 
 To generate some fake requests: `docker run --rm -ti -v $(pwd):/app -w /app node:alpine sh -c "npm i;npm run faker"`
 

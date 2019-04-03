@@ -2,7 +2,7 @@
 pipeline:
 
   maven-test:
-    image: maven
+    image: maven:3.6-jdk-8-alpine
     commands:
     - mvn install
 
