@@ -1,0 +1,29 @@
+{
+  "name": "cdp-pole-schema",
+  "version": "1.0.0",
+  "description": "## Purpose This is the CDP POLE Schema; it serves three main purposes:  1) it provides a composite JSON Schema entrypoint that creates the schema for REST API calls to create POLE entities 2) it provides a composite JSON Schema entrypoint that creates a JanusGraph schema with indices and properties 3) it provides a groovy utility to convert the Schema into something that JanusGraph can use to create indices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "faker": "node faker.js",
+    "viz": "node viz.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UKHomeOffice/cdp-pole-schema.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UKHomeOffice/cdp-pole-schema/issues"
+  },
+  "homepage": "https://github.com/UKHomeOffice/cdp-pole-schema#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "bluebird": "^3.5.4",
+    "chance": "^1.0.18",
+    "faker": "^4.1.0",
+    "json-schema-faker": "^0.5.0-rc16",
+    "lodash": "^4.17.11"
+  }
+}
