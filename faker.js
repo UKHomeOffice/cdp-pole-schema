@@ -15,5 +15,5 @@ const lots = {
 }
 
 jsf.resolve(lots, null, "cdp-composite-schema/src/main/resources/JSONSchema")
-  .then(fakes => console.log(JSON.stringify(fakes)))
+  .then(fakes => process.stdout.write(JSON.stringify(fakes)))
 

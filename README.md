@@ -21,6 +21,8 @@ To run the test cases, simply execute `mvn install` or you can use docker `docke
 
 To generate some fake requests: `docker run --rm -ti -v $(pwd):/app -w /app node:alpine sh -c "npm i;npm run faker"`
 
+To see the schema visualised with [graphviz](https://www.graphviz.org/) compatible dot file you can do `docker run --rm -ti -v $(pwd):/app -w /app node:alpine sh -c "npm i;npm run viz"` which you can then copy/paste into http://www.webgraphviz.com/ if you don't have graphviz (dot) on your computer.
+
 ## Future direction
 
 In the near future, we will be splitting this repo into 4 or more parts:
