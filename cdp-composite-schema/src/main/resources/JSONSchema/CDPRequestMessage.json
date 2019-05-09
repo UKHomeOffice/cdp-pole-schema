@@ -13,17 +13,14 @@
     "headers": {
       "$id": "#/properties/headers",
       "items": {
-        "properties": {
-          "operationType": {
-            "$id": "#/properties/headers/operationType",
-            "type": "string",
-            "title": "The Core.from Schema",
-            "default": 100,
-            "enum": [
-              "Create",
-              "Update"
-            ]
+        "required": ["reqId"],
 
+        "properties": {
+
+          "reqId": {
+            "$id": "#/properties/headers/requestId",
+            "type": "string",
+            "title": "The Request ID"
           },
           "retryCount": {
             "$id": "#/properties/headers/retryCount",
