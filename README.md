@@ -13,8 +13,22 @@ The best place to start is by looking at the test case under [PoleIngestionSpec]
 
 The composite JSON Schema entrypoint that creates the schema for REST API calls is here: [CDPRequestCreate.json](https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/main/resources/JSONSchema/CDPRequestCreate.json)
 
+## Converting the JSON schema to a graphdb schema
+
 The composite JSON Schema entrypoint that creates the JanusGraph schema with indices and properties is here: [CDPGraphSchema.json](https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/main/resources/JSONSchema/CDPGraphSchema.json)
+
+Passing the path to the [CDPGraphSchema.json](https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/main/resources/JSONSchema/CDPGraphSchema.json) file as the argument to the following function makes it return the graphDB schema: GraphJsonSchemaTranslator.getGraphSchemaInfo(schemaPathToCDPGraphSchema)
+
+This can then be used as an argument to the graphDB that creates the schema (see [graph-schema.json](https://github.com/UKHomeOffice/cdp-deployment-templates/blob/master/conf-template/graphdb/persona/schema-loader/graph-schema.json)) 
   
+Here is a snippet of code that shows how to do this:
+```
+import uk.gov.cdp.pole.domain.GraphJsonSchemaTranslator
+....
+      def schemaPath = '/JSONSchema/CDPGraphSchema.json'
+      def result = GraphJsonSchemaTranslator.getGraphSchemaInfo(schemaPath)
+
+```
 ## Tests  
 
 To run the test cases, simply execute `mvn install` or you can use docker `docker run --rm -ti -v $(pwd):/app -w /app maven:3.6-jdk-8-alpine mvn install`
