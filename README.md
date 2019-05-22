@@ -20,8 +20,40 @@ The composite JSON Schema entrypoint that creates the JanusGraph schema with ind
 Passing the path to the [CDPGraphSchema.json](https://github.com/UKHomeOffice/cdp-pole-schema/blob/master/cdp-composite-schema/src/main/resources/JSONSchema/CDPGraphSchema.json) file as the argument to the following function makes it return the graphDB schema: GraphJsonSchemaTranslator.getGraphSchemaInfo(schemaPathToCDPGraphSchema)
 
 This can then be used as an argument to the graphDB that creates the schema (see [graph-schema.json](https://github.com/UKHomeOffice/cdp-deployment-templates/blob/master/conf-template/graphdb/persona/schema-loader/graph-schema.json)) 
-  
-Here is a snippet of code that shows how to do this:
+ 
+To assign graph properties to a property in the JSON schema, simply use the appropriate type reference; as an example, changing the DoB property of the  dateOfBirth object from a date to a string would look like this:
+
+Before:
+```
+
+"dateOfBirth": {
+      "type": "object",
+      "description": "many ways of storing date of birth",
+      "properties": {
+        "DoB": {
+          "$ref": "./types/mixedidx/single/default_analyzer/date.json"
+        },
+        ....
+      }
+    },
+```
+
+After: 
+```
+
+"dateOfBirth": {
+      "type": "object",
+      "description": "many ways of storing date of birth",
+      "properties": {
+        "DoB": {
+          "$ref": "./types/mixedidx/single/default_analyzer/string.json"
+        },
+        ....
+      }
+    },
+```
+
+Once that is done, then users can simply re-run the GraphJsonSchemaTranslator to generate a new schema (this would likely be done from a CI pipeline whenever a schema is updated).  Here is a snippet of code that shows how to do this:
 ```
 import uk.gov.cdp.pole.domain.GraphJsonSchemaTranslator
 ....
@@ -29,6 +61,8 @@ import uk.gov.cdp.pole.domain.GraphJsonSchemaTranslator
       def result = GraphJsonSchemaTranslator.getGraphSchemaInfo(schemaPath)
 
 ```
+
+
 ## Tests  
 
 To run the test cases, simply execute `mvn install` or you can use docker `docker run --rm -ti -v $(pwd):/app -w /app maven:3.6-jdk-8-alpine mvn install`
