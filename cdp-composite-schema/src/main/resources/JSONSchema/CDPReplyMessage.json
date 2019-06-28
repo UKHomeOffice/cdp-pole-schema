@@ -1,0 +1,21 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "classpath://JSONSchema/CDPRequestCreate.json",
+  "type": "object",
+  "title": "Schema for CDP Reply Messages",
+  "required": [ "reqId" ],
+  "properties": {
+    "reqId": {
+      "$id": "#/properties/reqId",
+      "type": "string",
+      "title": "The Request ID"
+    },
+    "error": {
+      "$id": "#/properties/error",
+      "type": "string",
+      "title": "Optional error code"
+    }
+  }
+
+}

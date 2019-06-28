@@ -67,14 +67,15 @@ class PoleIngestionSpec extends Specification  {
 
 
     where:
-      schemaPath                          | jsonFilePath                                         | isValid | expectedError
-      "/JSONSchema/CDPRequestCreate.json" | "/jsonFiles/validRequest.json"                       | true    | null
-      "/JSONSchema/CDP_P_Person.json"     | "/jsonFiles/invalidRequest-wrongSubTypePerson.json"  | false   | "org.everit.json.schema.ValidationException: #/P.person/meta/m.subType: persona is not a valid enum value"
-      "/JSONSchema/CDPmetadata.json"      | "/jsonFiles/invalidRequest-wrongSubTypeCDPMdta.json" | false   | "org.everit.json.schema.ValidationException: #/m.subType: persona is not a valid enum value"
-      "/JSONSchema/CDPRequestCreate.json" | "/jsonFiles/helloWorld.json"                         | false   | "org.everit.json.schema.ValidationException: #: 3 schema violations found"
-      "/JSONSchema/CDPRequestCreate.json" | "/jsonFiles/invalidRequest-wrongRelationship.json"   | false   | "org.everit.json.schema.ValidationException: #/associations/0/relationship: #: only 2 subschema matches out of 3"
-      "/JSONSchema/CDPRequestCreate.json" | "/jsonFiles/invalidRequest-wrongSubType.json"        | false   | "org.everit.json.schema.ValidationException: #/poles/0: #: no subschema matched out of the total 2 subschemas"
-
+      schemaPath                           | jsonFilePath                                         | isValid | expectedError
+      "/JSONSchema/CDPRequestMessage.json" | "/jsonFiles/validRequest.json"                       | true    | null
+      "/JSONSchema/CDP_P_Person.json"      | "/jsonFiles/invalidRequest-wrongSubTypePerson.json"  | false   | "org.everit.json.schema.ValidationException: #/P.person/meta/m.subType: persona is not a valid enum value"
+      "/JSONSchema/CDPmetadata.json"       | "/jsonFiles/invalidRequest-wrongSubTypeCDPMdta.json" | false   | "org.everit.json.schema.ValidationException: #/m.subType: persona is not a valid enum value"
+      "/JSONSchema/CDPRequestMessage.json" | "/jsonFiles/helloWorld.json"                         | false   | "org.everit.json.schema.ValidationException: #: 3 schema violations found"
+      "/JSONSchema/CDPRequestMessage.json" | "/jsonFiles/invalidRequest-wrongRelationship.json"   | false   | "org.everit.json.schema.ValidationException: #/associations/0/relationship: #: only 2 subschema matches out of 3"
+      "/JSONSchema/CDPRequestMessage.json" | "/jsonFiles/invalidRequest-wrongSubType.json"        | false   | "org.everit.json.schema.ValidationException: #/poles/0: #: no subschema matched out of the total 2 subschemas"
+      "/JSONSchema/CDPReplyMessage.json"   | "/jsonFiles/validReply.json"                         | true    | null
+      "/JSONSchema/CDPReplyMessage.json"   | "/jsonFiles/helloWorld.json"                         | false   | "org.everit.json.schema.ValidationException: #: required key [reqId] not found"
 
   }
 
